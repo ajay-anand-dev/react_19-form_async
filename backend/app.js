@@ -85,6 +85,7 @@ app.post('/opinions', async (req, res) => {
 app.post('/opinions/:id/upvote', async (req, res) => {
   const { id } = req.params;
   await new Promise((resolve) => setTimeout(resolve, 1000));
+  // return res.status(500).end(); // to check tempory value of the react, use optimistic
   try {
     const opinion = await upvoteOpinion(Number(id));
     if (!opinion) {
